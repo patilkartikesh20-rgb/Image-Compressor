@@ -6,23 +6,23 @@ const compressBtn = document.getElementById('compressBtn');
 
 let selectedFile = null;
 
-// 1. Update quality label when sliding
+
 qualityRange.oninput = (e) => {
     qualityLabel.innerText = `${e.target.value}%`;
 };
 
-// 2. Make the box clickable
+
 dropZone.onclick = () => fileInput.click();
 
-// 3. Handle file selection via Click
+
 fileInput.onchange = (e) => {
     handleFile(e.target.files[0]);
 };
 
-// 4. Handle Drag & Drop
+
 dropZone.ondragover = (e) => {
     e.preventDefault();
-    dropZone.style.borderColor = "#8b5cf6"; // Glow purple on hover
+    dropZone.style.borderColor = "#8b5cf6";
 };
 
 dropZone.ondragleave = () => {
@@ -39,7 +39,7 @@ dropZone.ondrop = (e) => {
 function handleFile(file) {
     if (file && file.type.startsWith('image/')) {
         selectedFile = file;
-        // Update UI to show file is selected
+        
         dropZone.querySelector('p').innerHTML = `Selected: <strong>${file.name}</strong>`;
         console.log("File loaded:", file.name);
     } else {
@@ -47,7 +47,7 @@ function handleFile(file) {
     }
 }
 
-// 5. The Upload/Compress Logic
+
 compressBtn.onclick = async () => {
     if (!selectedFile) {
         alert("Please select an image first!");
