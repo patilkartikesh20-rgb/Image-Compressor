@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compressor | Image & PDF Compressor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    <div class="container">
+        <header>
+            <h1>Image<span>Compressor</span></h1>
+            <p>Optimize Images and PDFs in seconds.</p>
+        </header>
+
+        <main class="glass-card">
+            <div id="drop-zone" class="drop-zone">
+                <div class="icon">📁</div>
+                <p>Drop Image or PDF here</p>
+                <input type="file" id="fileInput" accept="image/*,application/pdf" hidden>
+            </div>
+
+            <div class="controls">
+                <div class="slider-header">
+                    <span>Compression Level</span>
+                    <span id="quality-label">80%</span>
+                </div>
+                <input type="range" id="qualityRange" min="1" max="100" value="80">
+            </div>
+
+            <button id="compressBtn" class="main-btn">Optimize File</button>
+
+            <div id="result-area" class="hidden">
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <small>Before</small>
+                        <p id="original-size">0 KB</p>
+                    </div>
+                    <div class="stat-arrow">→</div>
+                    <div class="stat-box">
+                        <small>After</small>
+                        <p id="new-size">0 KB</p>
+                    </div>
+                </div>
+                <div class="savings-badge" id="savings-val">Saved 0%</div>
+                <a id="downloadLink" class="download-btn">Download Compressed File</a>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
