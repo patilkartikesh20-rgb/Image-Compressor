@@ -13,15 +13,15 @@ app.post('/compress', upload.single('image'), async (req, res) => {
         const quality = parseInt(req.body.quality);
         const originalSize = req.file.size;
 
-        // Auto-detect format and compress
+        
         let pipeline = sharp(req.file.buffer);
         const metadata = await pipeline.metadata();
 
         if (metadata.format === 'png') {
-            // PNG compression (using quality/palette)
+            
             pipeline = pipeline.png({ quality: quality, compressionLevel: 9 });
         } else {
-            // JPEG/WebP compression
+            
             pipeline = pipeline.jpeg({ quality: quality, mozjpeg: true });
         }
 
