@@ -77,7 +77,7 @@ compressBtn.onclick = async () => {
             
             const dl = document.getElementById('downloadLink');
             dl.href = data.imageData;
-            dl.download = `nowhere_${selectedFile.name}`;
+            dl.download = `compressed_${selectedFile.name}`;
         } else {
             alert("Server error during compression.");
         }
